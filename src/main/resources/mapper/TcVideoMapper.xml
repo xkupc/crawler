@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xkupc.crawler.mapper.TcVideoMapper">
+    <resultMap id="BaseResultMap" type="com.xkupc.crawler.model.TcVideo">
+        <id column="VIDEO_ID" property="videoId" jdbcType="VARCHAR"/>
+        <result column="VIDEO_URL" property="videoUrl" jdbcType="VARCHAR"/>
+        <result column="VIDEO_NAME" property="videoName" jdbcType="VARCHAR"/>
+        <result column="VIDEO_MARK" property="videoMark" jdbcType="VARCHAR"/>
+        <result column="VIDEO_TYPE" property="videoType" jdbcType="VARCHAR"/>
+        <result column="VIDEO_IMG_URL" property="videoImgUrl" jdbcType="VARCHAR"/>
+        <result column="VIDEO_SCORE" property="videoScore" jdbcType="VARCHAR"/>
+        <result column="VIDEO_DESC" property="videoDesc" jdbcType="VARCHAR"/>
+        <result column="STATUS" property="status" jdbcType="VARCHAR"/>
+        <result column="REMARK" property="remark" jdbcType="VARCHAR"/>
+        <result column="ENABLE_FLAG" property="enableFlag" jdbcType="CHAR"/>
+        <result column="CREATE_BY" property="createBy" jdbcType="VARCHAR"/>
+        <result column="CREATE_DATE" property="createDate" jdbcType="TIMESTAMP"/>
+        <result column="LAST_UPDATE_BY" property="lastUpdateBy" jdbcType="VARCHAR"/>
+        <result column="LAST_UPDATE_DATE" property="lastUpdateDate" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    VIDEO_ID, VIDEO_URL, VIDEO_NAME, VIDEO_MARK, VIDEO_TYPE, VIDEO_IMG_URL, VIDEO_SCORE, 
+    VIDEO_DESC, STATUS, REMARK, ENABLE_FLAG, CREATE_BY, CREATE_DATE, LAST_UPDATE_BY, 
+    LAST_UPDATE_DATE
+  </sql>
+
+    <select id="selectList" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from tc_video
+        where VIDEO_ID = #{videoId,jdbcType=VARCHAR}
+    </select>
+    <insert id="insertList" parameterType="java.util.List">
+        INSERT into tc_video (VIDEO_ID,VIDEO_URL,VIDEO_NAME,VIDEO_MARK,VIDEO_IMG_URL,VIDEO_DESC,STATUS,ENABLE_FLAG,CREATE_BY,CREATE_DATE)
+        values
+        <foreach collection="list" index="index" item="item" separator=",">
+            (#{item.videoId},#{item.videoUrl},
+            #{item.videoName},#{item.videoMark},
+            #{item.videoImgUrl},#{item.videoDesc},
+            #{item.status},#{item.enableFlag},
+            #{item.createBy},#{item.createDate})
+        </foreach>
+    </insert>
+    <!--插入视频记录-->
+    <insert id="insertSelective" parameterType="com.xkupc.crawler.model.TcVideo">
+        insert into tc_video
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="videoId != null">
+                VIDEO_ID,
+            </if>
+            <if test="videoUrl != null">
+                VIDEO_URL,
+            </if>
+            <if test="videoName != null">
+                VIDEO_NAME,
+            </if>
+            <if test="videoMark != null">
+                VIDEO_MARK,
+            </if>
+            <if test="videoType != null">
+                VIDEO_TYPE,
+            </if>
+            <if test="videoImgUrl != null">
+                VIDEO_IMG_URL,
+            </if>
+            <if test="videoScore != null">
+                VIDEO_SCORE,
+            </if>
+            <if test="videoDesc != null">
+                VIDEO_DESC,
+            </if>
+            <if test="status != null">
+                STATUS,
+            </if>
+            <if test="remark != null">
+                REMARK,
+            </if>
+            <if test="enableFlag != null">
+                ENABLE_FLAG,
+            </if>
+            <if test="createBy != null">
+                CREATE_BY,
+            </if>
+            <if test="createDate != null">
+                CREATE_DATE,
+            </if>
+            <if test="lastUpdateBy != null">
+                LAST_UPDATE_BY,
+            </if>
+            <if test="lastUpdateDate != null">
+                LAST_UPDATE_DATE,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="videoId != null">
+                #{videoId,jdbcType=VARCHAR},
+            </if>
+            <if test="videoUrl != null">
+                #{videoUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="videoName != null">
+                #{videoName,jdbcType=VARCHAR},
+            </if>
+            <if test="videoMark != null">
+                #{videoMark,jdbcType=VARCHAR},
+            </if>
+            <if test="videoType != null">
+                #{videoType,jdbcType=VARCHAR},
+            </if>
+            <if test="videoImgUrl != null">
+                #{videoImgUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="videoScore != null">
+                #{videoScore,jdbcType=VARCHAR},
+            </if>
+            <if test="videoDesc != null">
+                #{videoDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="enableFlag != null">
+                #{enableFlag,jdbcType=CHAR},
+            </if>
+            <if test="createBy != null">
+                #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createDate != null">
+                #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastUpdateBy != null">
+                #{lastUpdateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="lastUpdateDate != null">
+                #{lastUpdateDate,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+
+    <!--更新视频记录-->
+    <update id="updateByPrimaryKeySelective" parameterType="com.xkupc.crawler.dto.TcVideoDTO">
+        update tc_video
+        <set>
+            <if test="videoUrl != null">
+                VIDEO_URL = #{videoUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="videoName != null">
+                VIDEO_NAME = #{videoName,jdbcType=VARCHAR},
+            </if>
+            <if test="videoMark != null">
+                VIDEO_MARK = #{videoMark,jdbcType=VARCHAR},
+            </if>
+            <if test="videoType != null">
+                VIDEO_TYPE = #{videoType,jdbcType=VARCHAR},
+            </if>
+            <if test="videoImgUrl != null">
+                VIDEO_IMG_URL = #{videoImgUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="videoScore != null">
+                VIDEO_SCORE = #{videoScore,jdbcType=VARCHAR},
+            </if>
+            <if test="videoDesc != null">
+                VIDEO_DESC = #{videoDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                STATUS = #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="remark != null">
+                REMARK = #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="enableFlag != null">
+                ENABLE_FLAG = #{enableFlag,jdbcType=CHAR},
+            </if>
+            <if test="createBy != null">
+                CREATE_BY = #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createDate != null">
+                CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastUpdateBy != null">
+                LAST_UPDATE_BY = #{lastUpdateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="lastUpdateDate != null">
+                LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where VIDEO_ID = #{videoId,jdbcType=VARCHAR}
+    </update>
+</mapper>
