@@ -1,0 +1,16 @@
+E:\myworkproject\App_cncsen\Src\allproject\crawler\src\main\java\com\xkupc\crawler\model\TcVideo.java
+E:\myworkproject\App_cncsen\Src\allproject\crawler\src\main\java\com\xkupc\crawler\dto\BaseDTO.java
+E:\myworkproject\App_cncsen\Src\allproject\crawler\src\main\java\com\xkupc\crawler\util\HttpClientUtils.java
+E:\myworkproject\App_cncsen\Src\allproject\crawler\src\main\java\com\xkupc\crawler\service\CrawlerFactory.java
+E:\myworkproject\App_cncsen\Src\allproject\crawler\src\main\java\com\xkupc\crawler\model\BaseModel.java
+E:\myworkproject\App_cncsen\Src\allproject\crawler\src\main\java\com\xkupc\crawler\service\impl\TcVideoServiceImpl.java
+E:\myworkproject\App_cncsen\Src\allproject\crawler\src\main\java\com\xkupc\crawler\service\ParseService.java
+E:\myworkproject\App_cncsen\Src\allproject\crawler\src\main\java\com\xkupc\crawler\service\TcVideoService.java
+E:\myworkproject\App_cncsen\Src\allproject\crawler\src\main\java\com\xkupc\crawler\config\DataSourceCfg.java
+E:\myworkproject\App_cncsen\Src\allproject\crawler\src\main\java\com\xkupc\CrawlerApplication.java
+E:\myworkproject\App_cncsen\Src\allproject\crawler\src\main\java\com\xkupc\crawler\web\PageController.java
+E:\myworkproject\App_cncsen\Src\allproject\crawler\src\main\java\com\xkupc\crawler\util\SnowFlakeKeyGen.java
+E:\myworkproject\App_cncsen\Src\allproject\crawler\src\main\java\com\xkupc\crawler\mapper\TcVideoMapper.java
+E:\myworkproject\App_cncsen\Src\allproject\crawler\src\main\java\com\xkupc\crawler\service\impl\VideoParseServiceImpl.java
+E:\myworkproject\App_cncsen\Src\allproject\crawler\src\main\java\com\xkupc\crawler\dto\TcVideoDTO.java
+E:\myworkproject\App_cncsen\Src\allproject\crawler\src\main\java\com\xkupc\crawler\config\MybatisConfig.java

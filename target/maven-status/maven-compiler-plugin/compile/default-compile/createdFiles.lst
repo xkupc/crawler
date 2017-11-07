@@ -1,0 +1,16 @@
+com\xkupc\crawler\config\MybatisConfig.class
+com\xkupc\CrawlerApplication.class
+com\xkupc\crawler\service\TcVideoService.class
+com\xkupc\crawler\util\HttpClientUtils.class
+com\xkupc\crawler\web\PageController.class
+com\xkupc\crawler\mapper\TcVideoMapper.class
+com\xkupc\crawler\service\impl\TcVideoServiceImpl.class
+com\xkupc\crawler\service\impl\VideoParseServiceImpl.class
+com\xkupc\crawler\dto\TcVideoDTO.class
+com\xkupc\crawler\model\BaseModel.class
+com\xkupc\crawler\config\DataSourceCfg.class
+com\xkupc\crawler\dto\BaseDTO.class
+com\xkupc\crawler\service\ParseService.class
+com\xkupc\crawler\util\SnowFlakeKeyGen.class
+com\xkupc\crawler\model\TcVideo.class
+com\xkupc\crawler\service\CrawlerFactory.class
