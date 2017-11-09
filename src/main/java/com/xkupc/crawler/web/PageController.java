@@ -34,6 +34,7 @@ public class PageController {
                          @RequestParam(name = "name", required = false, defaultValue = "visitor")
                                  String name, Model model, HttpServletRequest request, HttpServletResponse response) throws IOException {
         model.addAttribute("name", name);
+
         response.sendRedirect(url);
     }
 }
