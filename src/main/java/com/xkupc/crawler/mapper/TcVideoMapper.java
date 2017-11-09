@@ -14,6 +14,8 @@ public interface TcVideoMapper {
 
     List<TcVideo> selectList(TcVideoDTO record);
 
+    Long selectListCount(TcVideoDTO record);
+
     int insertList(List<TcVideo> tcVideoList);
 
 }

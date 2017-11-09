@@ -1,5 +1,6 @@
 package com.xkupc.crawler.service.impl;
 
+import com.xkupc.crawler.dto.PageDTO;
 import com.xkupc.crawler.dto.TcVideoDTO;
 import com.xkupc.crawler.mapper.TcVideoMapper;
 import com.xkupc.crawler.model.TcVideo;
@@ -36,5 +37,18 @@ public class TcVideoServiceImpl implements TcVideoService {
             tcVideo.setCreateDate(new Date());
             this.addVideo(tcVideo);
         }
+    }
+
+    @Override
+    public PageDTO<TcVideo> queryVideoList(TcVideoDTO tcVideoDTO) {
+        PageDTO<TcVideo> pageDTO = new PageDTO<>();
+        //查询记录总数
+        Long count = tcVideoMapper.selectListCount(tcVideoDTO);
+        if (null != count && count > 0) {
+            List<TcVideo> tcVideoList = tcVideoMapper.selectList(tcVideoDTO);
+            pageDTO.setRows(tcVideoList);
+        }
+        pageDTO.setTotalElements(count);
+        return pageDTO;
     }
 }

@@ -1,5 +1,7 @@
 package com.xkupc.crawler.service;
 
+import com.xkupc.crawler.dto.PageDTO;
+import com.xkupc.crawler.dto.TcVideoDTO;
 import com.xkupc.crawler.model.TcVideo;
 
 import java.util.List;
@@ -18,4 +20,12 @@ public interface TcVideoService {
     void addVideo(TcVideo tcVideo);
 
     void addVideoList(List<TcVideo> tcVideoList);
+
+    /**
+     * 查询视频列表
+     *
+     * @param tcVideoDTO
+     * @return
+     */
+   PageDTO<TcVideo> queryVideoList(TcVideoDTO tcVideoDTO);
 }

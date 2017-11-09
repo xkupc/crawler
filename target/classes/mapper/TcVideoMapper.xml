@@ -23,15 +23,37 @@
     VIDEO_DESC, STATUS, REMARK, ENABLE_FLAG, CREATE_BY, CREATE_DATE, LAST_UPDATE_BY, 
     LAST_UPDATE_DATE
   </sql>
-
-    <select id="selectList" resultMap="BaseResultMap" parameterType="java.lang.String">
+    <select id="selectListCount" resultType="java.lang.Long" parameterType="com.xkupc.crawler.dto.TcVideoDTO">
+        select
+        count(1)
+        from tc_video
+        where 1=1
+        <if test="videoId != null">
+            and VIDEO_ID = #{videoId,jdbcType=VARCHAR}
+        </if>
+        <if test="VIDEO_TYPE !=null">
+            and VIDEO_TYPE =#{videoType,jdbcType=VARCHAR}
+        </if>
+    </select>
+    <select id="selectList" resultMap="BaseResultMap" parameterType="com.xkupc.crawler.dto.TcVideoDTO">
         select
         <include refid="Base_Column_List"/>
         from tc_video
-        where VIDEO_ID = #{videoId,jdbcType=VARCHAR}
+        where 1=1
+        <if test="videoId != null">
+            and VIDEO_ID = #{videoId,jdbcType=VARCHAR}
+        </if>
+        <if test="VIDEO_TYPE !=null">
+            and VIDEO_TYPE =#{videoType,jdbcType=VARCHAR}
+        </if>
+        <if test="pageSize != 0">
+            ORDER BY CREATE_DATE DESC
+            LIMIT #{pageNumber,jdbcType=INTEGER},#{pageSize,jdbcType=INTEGER}
+        </if>
     </select>
     <insert id="insertList" parameterType="java.util.List">
-        INSERT into tc_video (VIDEO_ID,VIDEO_URL,VIDEO_NAME,VIDEO_MARK,VIDEO_IMG_URL,VIDEO_DESC,STATUS,ENABLE_FLAG,CREATE_BY,CREATE_DATE)
+        INSERT into tc_video
+        (VIDEO_ID,VIDEO_URL,VIDEO_NAME,VIDEO_MARK,VIDEO_IMG_URL,VIDEO_DESC,STATUS,ENABLE_FLAG,CREATE_BY,CREATE_DATE)
         values
         <foreach collection="list" index="index" item="item" separator=",">
             (#{item.videoId},#{item.videoUrl},
