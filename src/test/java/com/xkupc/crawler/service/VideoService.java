@@ -65,9 +65,9 @@ public class VideoService extends BaseTestService {
             loginElementWithAccount = loginElementWithAccount.findElement(By.xpath("//div[@class='web_qr_login_show']")).findElement(By.xpath("//div[@class='web_login']")).
                     findElement(By.xpath("//div[@class='login_form']"));
             loginElementWithAccount.findElement(By.xpath("//div[@class='uinArea']")).findElement(By.id("u")).clear();
-            loginElementWithAccount.findElement(By.xpath("//div[@class='uinArea']")).findElement(By.id("u")).sendKeys("1031572219");
+            loginElementWithAccount.findElement(By.xpath("//div[@class='uinArea']")).findElement(By.id("u")).sendKeys("xxxxxx");
             loginElementWithAccount.findElement(By.xpath("//div[@class='pwdArea']")).findElement(By.id("p")).clear();
-            loginElementWithAccount.findElement(By.xpath("//div[@class='pwdArea']")).findElement(By.id("p")).sendKeys("xkupctc@2016");
+            loginElementWithAccount.findElement(By.xpath("//div[@class='pwdArea']")).findElement(By.id("p")).sendKeys("xxxxxx");
             loginElementWithAccount.findElement(By.xpath("//div[@class='submit']")).findElement(By.xpath("//a[@class='login_button']")).click();
             Thread.sleep(100L);
             Set<Cookie> cookies = driver.manage().getCookies();
