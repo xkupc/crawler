@@ -8,9 +8,11 @@ import com.xkupc.crawler.service.TcVideoService;
 import com.xkupc.crawler.util.SnowFlakeKeyGen;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.*;
 
 /**
  * @author xk
@@ -23,10 +25,24 @@ public class TcVideoServiceImpl implements TcVideoService {
     TcVideoMapper tcVideoMapper;
     @Autowired
     SnowFlakeKeyGen snowFlakeKeyGen;
+    ExecutorService executorService = new ThreadPoolExecutor(1, 1,
+            0L, TimeUnit.MILLISECONDS,
+            new LinkedBlockingQueue<Runnable>());
 
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void addVideo(TcVideo tcVideo) {
         tcVideoMapper.insertSelective(tcVideo);
+        executorService.execute(() -> {
+            try {
+                System.err.println("我开始睡了");
+                Thread.sleep(10000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.err.println("我醒了,你呢");
+            throw new RuntimeException();
+        });
     }
 
     @Override

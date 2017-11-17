@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xkupc.crawler.mapper.RegionMapper">
+    <resultMap id="BaseResultMap" type="com.xkupc.crawler.model.Region">
+        <id column="ID" property="id" jdbcType="VARCHAR"/>
+        <result column="PARENT_ID" property="parentId" jdbcType="VARCHAR"/>
+        <result column="AREA_NAME" property="areaName" jdbcType="VARCHAR"/>
+        <result column="AREA_PINYIN" property="areaPinyin" jdbcType="VARCHAR"/>
+        <result column="ISHOT" property="ishot" jdbcType="INTEGER"/>
+        <result column="TYPE" property="type" jdbcType="INTEGER"/>
+        <result column="ORDER_NUMBER" property="orderNumber" jdbcType="INTEGER"/>
+        <result column="PATH" property="path" jdbcType="VARCHAR"/>
+        <result column="DTYPE" property="dtype" jdbcType="VARCHAR"/>
+        <result column="STATUS" property="status" jdbcType="TINYINT"/>
+        <result column="REMARKS" property="remarks" jdbcType="VARCHAR"/>
+        <result column="ENABLE_FLAG" property="enableFlag" jdbcType="VARCHAR"/>
+        <result column="CREATE_BY" property="createBy" jdbcType="VARCHAR"/>
+        <result column="CREATE_DATE" property="createDate" jdbcType="TIMESTAMP"/>
+        <result column="LAST_UPDATE_BY" property="lastUpdateBy" jdbcType="VARCHAR"/>
+        <result column="LAST_UPDATE_DATE" property="lastUpdateDate" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    ID, PARENT_ID, AREA_NAME, AREA_PINYIN, ISHOT, TYPE, ORDER_NUMBER, PATH, DTYPE, STATUS, 
+    REMARKS, ENABLE_FLAG, CREATE_BY, CREATE_DATE, LAST_UPDATE_BY, LAST_UPDATE_DATE
+  </sql>
+
+    <insert id="insertSelective" parameterType="com.xkupc.crawler.model.Region">
+        insert into region
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                ID,
+            </if>
+            <if test="parentId != null">
+                PARENT_ID,
+            </if>
+            <if test="areaName != null">
+                AREA_NAME,
+            </if>
+            <if test="areaPinyin != null">
+                AREA_PINYIN,
+            </if>
+            <if test="ishot != null">
+                ISHOT,
+            </if>
+            <if test="type != null">
+                TYPE,
+            </if>
+            <if test="orderNumber != null">
+                ORDER_NUMBER,
+            </if>
+            <if test="path != null">
+                PATH,
+            </if>
+            <if test="dtype != null">
+                DTYPE,
+            </if>
+            <if test="status != null">
+                STATUS,
+            </if>
+            <if test="remarks != null">
+                REMARKS,
+            </if>
+            <if test="enableFlag != null">
+                ENABLE_FLAG,
+            </if>
+            <if test="createBy != null">
+                CREATE_BY,
+            </if>
+            <if test="createDate != null">
+                CREATE_DATE,
+            </if>
+            <if test="lastUpdateBy != null">
+                LAST_UPDATE_BY,
+            </if>
+            <if test="lastUpdateDate != null">
+                LAST_UPDATE_DATE,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="parentId != null">
+                #{parentId,jdbcType=VARCHAR},
+            </if>
+            <if test="areaName != null">
+                #{areaName,jdbcType=VARCHAR},
+            </if>
+            <if test="areaPinyin != null">
+                #{areaPinyin,jdbcType=VARCHAR},
+            </if>
+            <if test="ishot != null">
+                #{ishot,jdbcType=INTEGER},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=INTEGER},
+            </if>
+            <if test="orderNumber != null">
+                #{orderNumber,jdbcType=INTEGER},
+            </if>
+            <if test="path != null">
+                #{path,jdbcType=VARCHAR},
+            </if>
+            <if test="dtype != null">
+                #{dtype,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=TINYINT},
+            </if>
+            <if test="remarks != null">
+                #{remarks,jdbcType=VARCHAR},
+            </if>
+            <if test="enableFlag != null">
+                #{enableFlag,jdbcType=VARCHAR},
+            </if>
+            <if test="createBy != null">
+                #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createDate != null">
+                #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastUpdateBy != null">
+                #{lastUpdateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="lastUpdateDate != null">
+                #{lastUpdateDate,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <select id="selectList" resultMap="BaseResultMap" parameterType="com.xkupc.crawler.model.Region">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM region
+        WHERE 1=1
+        <if test="id != null">
+            AND ID= #{id,jdbcType=VARCHAR}
+        </if>
+        <if test="parentId != null">
+            AND PARENT_ID=#{parentId,jdbcType=VARCHAR}
+        </if>
+        <if test="type != null">
+            AND TYPE=#{type,jdbcType=INTEGER}
+        </if>
+    </select>
+    <update id="update" parameterType="com.xkupc.crawler.model.Region">
+        UPDATE region
+        <set>
+            <if test="path !=null">
+                PATH = #{path,jdbcType=VARCHAR},
+            </if>
+            <if test="lastUpdateBy != null">
+                LAST_UPDATE_BY = #{lastUpdateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="lastUpdateDate != null">
+                LAST_UPDATE_DATE = #{lastUpdateDate,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        WHERE 1=1
+        <if test="id != null">
+            AND ID= #{id,jdbcType=VARCHAR}
+        </if>
+        <if test="parentId != null">
+            AND PARENT_ID=#{parentId,jdbcType=VARCHAR}
+        </if>
+    </update>
+</mapper>

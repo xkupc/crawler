@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="format-detection" content="telephone=no, email=no" />
+<script src="https://g.alicdn.com/mtb/??lib-flexible/0.3.2/flexible_css.js,lib-flexible/0.3.2/flexible.js"></script>
+<title>腾讯视频VIP</title>
+<style>
+    html,body,p,ul{position:relative;padding:0;margin:0;color: #333; background-color: #d5f8bb;}
+    body, div, p, ul, li, a, span, input {box-sizing: border-box;}
+    .input-group {
+	    overflow: hidden;
+	}
+	.order-no {
+	    width: 6.25rem;
+	    border-top-left-radius: 0.0625rem;
+	    border-bottom-left-radius: 0.0625rem;
+	}
+	input {
+	    height: 1.0625rem;
+	    padding-left: 0.28rem;
+	    border: 0;
+	    float: left;
+	}
+	.jfb-btn {
+	    width: 2.90625rem;
+	    height: 1.0625rem;
+	    border-top-right-radius: 0.0625rem;
+	    border-bottom-right-radius: 0.0625rem;
+	    float: left;
+	    background-color: #3e6721;
+	    font-weight: bold;
+	    color: #fff;
+	    border: 0;
+	}
+	.fs15 {
+	    font-size: 0.4rem;
+	}
+	.form {
+	    width: 9.15625rem;
+	    height: 1.9rem;
+	    margin: 0 auto;
+	    margin-top: 5rem;
+	}
+	
+
+</style>
+</head>
+<body>
+<div class="form">
+<div class="input-group">
+  <input class="order-no" type="text" id="url" placeholder="输入腾讯视频链接">
+  <button class="jfb-btn tf8-log fs15" id="J_jfbBtn" style="background-color: ;color: ;">转VIP模式</button>
+</div>
+      
+</div>
+<script src="/js/jquery-2.1.4.min.js"></script>
+<script>
+$(function() {
+	$("#J_jfbBtn").click(function(){
+		$.ajax({
+	        type: "GET",
+	        url: "../resourceBlock/getIndexResourceBlock",
+	        data: {"url":$("#url").val()},
+	        dataType: "json",
+	        success: function(data){
+	        
+	        }
+	    });
+	});
+});
+
+</script>
+</body>
+</html>

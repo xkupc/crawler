@@ -1,7 +1,6 @@
 package com.xkupc.crawler.service.impl;
 
 
-import com.xkupc.crawler.model.BaseModel;
 import com.xkupc.crawler.model.TcVideo;
 import com.xkupc.crawler.service.ParseService;
 import org.assertj.core.util.Lists;
